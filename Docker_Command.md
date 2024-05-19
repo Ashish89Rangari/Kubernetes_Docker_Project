@@ -26,6 +26,8 @@ docker run -d -p 8080:80 app1
 	- -80 -nginx base image port  <br/>
 	- app1 – image name or can give image id <br/>
 
+<br/>
+
 5) To list the docker container
 ```
 docker ps -a
