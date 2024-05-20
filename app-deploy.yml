@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: webappdeployment #name of the application to deploy in kubernetes
+spec: 
+  replicas: 2            # How many pods you want create for high availability load balancing
+  strategy: 
+    type: RollingUpdate
+  selector:              #labels for pods
+    matchLabels:
+      app: webapp          #pod label name
+  template:                #pod template
+    metadata:
+      name: webapppod      #pod name
+      labels:
+        app: webapp        #pod label should be same as selector label name
+    spec:                  #specification of pod docker image to create a pod
+      containers:          #what container you want to create
+      - name: webappcontainer    #container name 
+        image: ashishr99/app99   #docker image id from docker hub
+        ports:                   #container ports
+          - containerPort: 8080
+---
+#In order to access the app outside writing the kubernetes service (Load balancer service) below
+apiVersion: v1
+kind: Service              #which kind using services
+metadata:
+  name: webappservice      #name of service
+spec:                      #specification of service
+  type: LoadBalancer       #service type 
+  selector: 
+    app: webapp            #pod label
+  ports:                   #port mapping
+    - port: 80               #mapping port to from conatiner 8080 to load balancer port 80
+      targetPort: 8080      #conatiner 8080 port
+...
+ 
