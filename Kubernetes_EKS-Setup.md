@@ -56,12 +56,44 @@ eksctl create cluster --name ashish-cluster4 --region ap-south-1 --node-type t2.
 `
 
 ## Note: Cluster creation will take 5 to 10 mins of time (we have to wait). After cluster created we can check nodes using below command.
-
-`
+<br/>
+```
  kubectl get nodes  
-`
-
+```
+<br/>
 ## Note: We should be able to see EKS cluster nodes here.**
+<br/>
+
+# Some important command related to Kubernetes(k8s)pods and nodes #<br/>
+
+1) To list the pods
+```
+ kubectl get pods 
+```
+<br/>
+
+2) To list the service
+```
+ kubectl get svc 
+```
+<br/>
+
+3) To list the deployment
+```
+ kubectl get deployment
+```
+<br/>
+
+3) To execute the yaml file were all the resources, service are mentioned
+```
+ kubectl apply -f  app-deploy.yml
+```
+<br/>
+
+4) To list the pods are created in which worker nodes
+```
+ kubectl get pods -o wide
+```
 
 # We are done with our Setup #
 	
