@@ -56,13 +56,13 @@ eksctl create cluster --name ashish-cluster4 --region ap-south-1 --node-type t2.
 `
 
 ## Note: Cluster creation will take 5 to 10 mins of time (we have to wait). After cluster created we can check nodes using below command.
-<br/>
+
 ```
  kubectl get nodes  
 ```
-<br/>
+
 ## Note: We should be able to see EKS cluster nodes here.**
-<br/>
+
 
 # Some important command related to Kubernetes(k8s)pods and nodes #<br/>
 
